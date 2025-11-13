@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.segurcol.viewcontroller.NovedadViewController">
+
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Registro de Novedades">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <VBox layoutX="14.0" layoutY="50.0" prefHeight="200.0" prefWidth="350.0" spacing="10.0">
+            <children>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Fecha:" />
+                        <DatePicker fx:id="dpFecha" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Tipo:" />
+                        <ComboBox fx:id="cbTipoNovedad" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Descripción:" />
+                        <TextArea fx:id="txtDescripcion" prefHeight="80.0" prefWidth="350.0" />
+                    </children>
+                </VBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Empleado:" />
+                        <ComboBox fx:id="cbEmpleado" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Servicio:" />
+                        <ComboBox fx:id="cbServicio" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Button fx:id="btnRegistrar" onAction="#onRegistrarNovedad" text="Registrar" />
+                        <Button fx:id="btnLimpiar" onAction="#onLimpiar" text="Limpiar" />
+                        <Button fx:id="btnFiltrar" onAction="#onFiltrar" text="Filtrar" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <TableView fx:id="tblNovedades" layoutX="380.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="colFecha" prefWidth="100.0" text="Fecha" />
+                <TableColumn fx:id="colTipo" prefWidth="80.0" text="Tipo" />
+                <TableColumn fx:id="colDescripcion" prefWidth="150.0" text="Descripción" />
+                <TableColumn fx:id="colEmpleado" prefWidth="100.0" text="Empleado" />
+                <TableColumn fx:id="colServicio" prefWidth="100.0" text="Servicio" />
+            </columns>
+        </TableView>
+
+        <!-- BOTÓN VOLVER AL MENÚ PRINCIPAL AGREGADO -->
+        <Button fx:id="btnVolverMenu" layoutX="14.0" layoutY="550.0"
+                onAction="#onVolverMenu" prefWidth="200.0" prefHeight="30.0"
+                text="Volver al Menú Principal"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </children>
+</AnchorPane>

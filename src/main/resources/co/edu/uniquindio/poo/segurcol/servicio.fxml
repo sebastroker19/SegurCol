@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.segurcol.viewcontroller.ServicioViewController">
+
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Gestión de Servicios">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <VBox layoutX="14.0" layoutY="50.0" prefHeight="200.0" prefWidth="350.0" spacing="10.0">
+            <children>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Código Contrato:" />
+                        <TextField fx:id="txtCodigoContrato" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Cliente:" />
+                        <TextField fx:id="txtCliente" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Tarifa Mensual:" />
+                        <TextField fx:id="txtTarifaMensual" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Estado:" />
+                        <ComboBox fx:id="cbEstado" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Label prefWidth="100.0" text="Tipo Servicio:" />
+                        <ComboBox fx:id="cbTipoServicio" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <!-- Campos específicos para Monitoreo Remoto -->
+                <HBox spacing="10.0" visible="false" fx:id="boxMonitoreo">
+                    <children>
+                        <Label prefWidth="100.0" text="N° Dispositivos:" />
+                        <TextField fx:id="txtNumeroDispositivos" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <!-- Campos específicos para Patrullaje Móvil -->
+                <HBox spacing="10.0" visible="false" fx:id="boxPatrullaje1">
+                    <children>
+                        <Label prefWidth="100.0" text="Cant. Rutas:" />
+                        <TextField fx:id="txtCantidadRutas" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0" visible="false" fx:id="boxPatrullaje2">
+                    <children>
+                        <Label prefWidth="100.0" text="Km Recorridos:" />
+                        <TextField fx:id="txtKilometrosRecorridos" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Button fx:id="btnAgregar" onAction="#onAgregarServicio" text="Agregar" />
+                        <Button fx:id="btnActualizar" onAction="#onActualizarServicio" text="Actualizar" />
+                        <Button fx:id="btnEliminar" onAction="#onEliminarServicio" text="Eliminar" />
+                        <Button fx:id="btnLimpiar" onAction="#onLimpiar" text="Limpiar" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <TableView fx:id="tblServicios" layoutX="380.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="colCodigo" prefWidth="80.0" text="Código" />
+                <TableColumn fx:id="colCliente" prefWidth="120.0" text="Cliente" />
+                <TableColumn fx:id="colTipo" prefWidth="100.0" text="Tipo" />
+                <TableColumn fx:id="colEstado" prefWidth="80.0" text="Estado" />
+                <TableColumn fx:id="colCosto" prefWidth="80.0" text="Costo" />
+            </columns>
+        </TableView>
+
+        <!-- BOTÓN VOLVER AL MENÚ PRINCIPAL AGREGADO -->
+        <Button fx:id="btnVolverMenu" layoutX="14.0" layoutY="550.0"
+                onAction="#onVolverMenu" prefWidth="200.0" prefHeight="30.0"
+                text="Volver al Menú Principal"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </children>
+</AnchorPane>

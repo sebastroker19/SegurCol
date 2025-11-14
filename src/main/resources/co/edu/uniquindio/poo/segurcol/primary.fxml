@@ -6,40 +6,73 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8"
+<VBox alignment="CENTER" spacing="25.0" xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="co.edu.uniquindio.poo.segurcol.viewcontroller.PrimaryViewController">
+      fx:controller="co.edu.uniquindio.poo.segurcol.viewcontroller.PrimaryViewController"
+      style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #3498db);">
 
     <children>
-        <Label text="SEGURCOL S.A.">
+        <!-- Título Principal -->
+        <Label text="SEGURCOL S.A.S" style="-fx-text-fill: white; -fx-font-weight: bold;">
             <font>
-                <Font name="System Bold" size="24.0" />
+                <Font name="System Bold" size="28.0" />
             </font>
         </Label>
 
-        <Label text="Sistema de Gestión de Servicios de Seguridad">
+        <!-- Subtítulo -->
+        <Label text="Sistema Integral de Seguridad" style="-fx-text-fill: #ecf0f1;">
             <font>
-                <Font size="14.0" />
+                <Font size="16.0" />
             </font>
         </Label>
 
-        <Button fx:id="btnEmpleados" onAction="#onEmpleados" text="Gestión de Empleados"
-                prefWidth="200" prefHeight="40" />
+        <!-- Espaciador -->
+        <Label text=" " prefHeight="20" />
 
-        <Button fx:id="btnServicios" onAction="#onServicios" text="Gestión de Servicios"
-                prefWidth="200" prefHeight="40" />
+        <!-- Botones del Menú -->
+        <Button fx:id="btnEmpleados" onAction="#onEmpleados" text="👥 Gestión de Empleados"
+                prefWidth="300" prefHeight="50"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-background-radius: 8;" />
 
-        <Button fx:id="btnEquipos" onAction="#onEquipos" text="Gestión de Equipos"
-                prefWidth="200" prefHeight="40" />
+        <Button fx:id="btnServicios" onAction="#onServicios" text="📊 Gestión de Servicios"
+                prefWidth="300" prefHeight="50"
+                style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-background-radius: 8;" />
 
-        <Button fx:id="btnNovedades" onAction="#onNovedades" text="Registro de Novedades"
-                prefWidth="200" prefHeight="40" />
+        <Button fx:id="btnEquipos" onAction="#onEquipos" text="🛠️ Gestión de Equipos"
+                prefWidth="300" prefHeight="50"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-background-radius: 8;" />
 
-        <Button fx:id="btnAgenda" onAction="#onAgenda" text="Agenda y Turnos"
-                prefWidth="200" prefHeight="40" />
+        <Button fx:id="btnNovedades" onAction="#onNovedades" text="📝 Registro de Novedades"
+                prefWidth="300" prefHeight="50"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-background-radius: 8;" />
+
+        <Button fx:id="btnAgenda" onAction="#onAgenda" text="📅 Agenda y Programación"
+                prefWidth="300" prefHeight="50"
+                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-background-radius: 8;" />
+
+        <!-- Información de la empresa -->
+        <Label text=" " prefHeight="30" />
+        <Label text="PROFESOR POGAME 5.0 🔥· © 2025 SEGURCOL S.A.S" style="-fx-text-fill: #bdc3c7; -fx-font-size: 12;" />
     </children>
 
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
     </padding>
+
+    <!-- Estilos CSS internos -->
+    <style>
+        .button {
+        -fx-cursor: hand;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 2);
+        }
+        .button:hover {
+        -fx-scale-x: 1.03;
+        -fx-scale-y: 1.03;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 3);
+        }
+        .button:pressed {
+        -fx-scale-x: 0.98;
+        -fx-scale-y: 0.98;
+        }
+    </style>
 </VBox>

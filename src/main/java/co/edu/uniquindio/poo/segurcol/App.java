@@ -20,12 +20,12 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("SEGURCOL S.A. - Sistema de Gestión de Seguridad");
+        this.primaryStage.setTitle("SEGURCOL S.A.S - Sistema Integral de Seguridad");
         inicializarDatosPrueba();
         abrirVistaPrincipal();
     }
 
-    // CORREGIDO: Cambiado de private a public
+    // CORREGIDO: Método público para volver al menú principal
     public void abrirVistaPrincipal() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -38,15 +38,19 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            System.out.println("=== MENÚ PRINCIPAL ABIERTO ===");
         } catch (IOException e) {
+            System.err.println("Error al abrir vista principal: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    // === MÉTODOS CORREGIDOS - NOMBRES ACTUALIZADOS ===
+    // === MÉTODOS DE NAVEGACIÓN ===
 
     public void openEmpleadoView() {
         try {
+            System.out.println("Abriendo Gestión de Empleados...");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("empleado.fxml"));
             AnchorPane rootLayout = loader.load();
@@ -57,13 +61,17 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            System.out.println("Gestión de Empleados abierta correctamente");
         } catch (IOException e) {
+            System.err.println("Error al abrir gestión de empleados: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     public void openServicioView() {
         try {
+            System.out.println("Abriendo Gestión de Servicios...");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("servicio.fxml"));
             AnchorPane rootLayout = loader.load();
@@ -74,13 +82,17 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            System.out.println("Gestión de Servicios abierta correctamente");
         } catch (IOException e) {
+            System.err.println("Error al abrir gestión de servicios: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     public void openEquipoView() {
         try {
+            System.out.println("Abriendo Gestión de Equipos...");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("equipo.fxml"));
             AnchorPane rootLayout = loader.load();
@@ -91,13 +103,17 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            System.out.println("Gestión de Equipos abierta correctamente");
         } catch (IOException e) {
+            System.err.println("Error al abrir gestión de equipos: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     public void openNovedadView() {
         try {
+            System.out.println("Abriendo Registro de Novedades...");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("novedad.fxml"));
             AnchorPane rootLayout = loader.load();
@@ -108,13 +124,17 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            System.out.println("Registro de Novedades abierto correctamente");
         } catch (IOException e) {
+            System.err.println("Error al abrir registro de novedades: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     public void openAgendaView() {
         try {
+            System.out.println("Abriendo Agenda y Programación...");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("agenda.fxml"));
             AnchorPane rootLayout = loader.load();
@@ -125,13 +145,17 @@ public class App extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            System.out.println("Agenda y Programación abierta correctamente");
         } catch (IOException e) {
+            System.err.println("Error al abrir agenda: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     private void inicializarDatosPrueba() {
-        // (Mantener el mismo código de inicialización de datos)
+        System.out.println("=== INICIALIZANDO DATOS DE PRUEBA ===");
+
         // Crear empleados de prueba
         Vigilante vigilante1 = new Vigilante("Carlos López", "12345678", "día", 1500000, "Puesto-01", "no letal");
         Vigilante vigilante2 = new Vigilante("Ana Martínez", "87654321", "noche", 1600000, "Puesto-02", "letal");
@@ -143,6 +167,8 @@ public class App extends Application {
         sistemaController.registrarEmpleado(supervisor1);
         sistemaController.registrarEmpleado(operador1);
 
+        System.out.println("Empleados de prueba creados: 4");
+
         // Crear servicios de prueba
         CustodiaFija custodia1 = new CustodiaFija("CONT-001", "Empresa ABC", 5000000, "activo");
         PatrullajeMovil patrullaje1 = new PatrullajeMovil("CONT-002", "Conjunto Residencial XYZ", 3000000, "activo", 3, 150.5);
@@ -151,6 +177,8 @@ public class App extends Application {
         sistemaController.registrarServicio(custodia1);
         sistemaController.registrarServicio(patrullaje1);
         sistemaController.registrarServicio(monitoreo1);
+
+        System.out.println("Servicios de prueba creados: 3");
 
         // Asignar vigilantes a custodia
         sistemaController.asignarEmpleadoAServicio("CONT-001", vigilante1);
@@ -166,6 +194,8 @@ public class App extends Application {
         sistemaController.registrarEquipo(arma1);
         sistemaController.registrarEquipo(vehiculo1);
         sistemaController.registrarEquipo(uniforme1);
+
+        System.out.println("Equipos de prueba creados: 4");
 
         // Asignar equipos a empleados
         sistemaController.asignarEquipoAEmpleado(vigilante1, radio1);
@@ -190,6 +220,8 @@ public class App extends Application {
                 null
         );
 
+        System.out.println("Novedades de prueba creadas: 2");
+
         // Programar eventos en agenda
         sistemaController.programarEvento(
                 java.time.LocalDate.now().plusDays(1),
@@ -206,18 +238,22 @@ public class App extends Application {
                 null,
                 "turno"
         );
+
+        System.out.println("Eventos de agenda creados: 2");
+        System.out.println("=== DATOS DE PRUEBA INICIALIZADOS CORRECTAMENTE ===");
     }
 
     public static void main(String[] args) {
+        System.out.println("=== INICIANDO APLICACIÓN SEGURCOL ===");
         launch();
     }
 
-    // Método para obtener el controlador del sistema (útil para los viewcontrollers)
+    // Método para obtener el controlador del sistema
     public SistemaController getSistemaController() {
         return sistemaController;
     }
 
-    // Método adicional para obtener la instancia principal (opcional, pero útil)
+    // Método para obtener la instancia principal del Stage
     public Stage getPrimaryStage() {
         return primaryStage;
     }

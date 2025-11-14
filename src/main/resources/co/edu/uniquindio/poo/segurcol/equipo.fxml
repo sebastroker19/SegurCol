@@ -12,75 +12,124 @@
             fx:controller="co.edu.uniquindio.poo.segurcol.viewcontroller.EquipoViewController">
 
     <children>
+        <!-- Título -->
         <Label layoutX="14.0" layoutY="14.0" text="Gestión de Equipos">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
 
-        <VBox layoutX="14.0" layoutY="50.0" prefHeight="200.0" prefWidth="350.0" spacing="10.0">
-            <children>
-                <HBox spacing="10.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Código:" />
-                        <TextField fx:id="txtCodigo" prefWidth="200.0" />
-                    </children>
-                </HBox>
+        <!-- Panel de formulario izquierdo -->
+        <VBox layoutX="14.0" layoutY="50.0" prefHeight="500.0" prefWidth="350.0" spacing="15.0"
+              style="-fx-border-color: #cccccc; -fx-border-width: 1px; -fx-padding: 15;">
 
-                <HBox spacing="10.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Tipo:" />
-                        <ComboBox fx:id="cbTipo" prefWidth="200.0" />
-                    </children>
-                </HBox>
+            <!-- Campos básicos -->
+            <Label text="Datos del Equipo:" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
 
-                <HBox spacing="10.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Estado:" />
-                        <ComboBox fx:id="cbEstado" prefWidth="200.0" />
-                    </children>
-                </HBox>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label prefWidth="100.0" text="Código:" />
+                <TextField fx:id="txtCodigo" prefWidth="200.0" />
+            </HBox>
 
-                <HBox spacing="10.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Valor Reposición:" />
-                        <TextField fx:id="txtValorReposicion" prefWidth="200.0" />
-                    </children>
-                </HBox>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label prefWidth="100.0" text="Tipo:" />
+                <ComboBox fx:id="cbTipo" prefWidth="200.0" />
+            </HBox>
 
-                <HBox spacing="10.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Asignar a:" />
-                        <ComboBox fx:id="cbEmpleadoAsignar" prefWidth="200.0" />
-                    </children>
-                </HBox>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label prefWidth="100.0" text="Estado:" />
+                <ComboBox fx:id="cbEstado" prefWidth="200.0" />
+            </HBox>
 
-                <HBox spacing="10.0">
-                    <children>
-                        <Button fx:id="btnAgregar" onAction="#onAgregarEquipo" text="Agregar" />
-                        <Button fx:id="btnAsignar" onAction="#onAsignarEquipo" text="Asignar" />
-                        <Button fx:id="btnRetirar" onAction="#onRetirarEquipo" text="Retirar" />
-                        <Button fx:id="btnLimpiar" onAction="#onLimpiar" text="Limpiar" />
-                        <Button fx:id="btnGenerarInforme" onAction="#onGenerarInforme" text="Informe" />
-                    </children>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label prefWidth="100.0" text="Valor Reposición:" />
+                <TextField fx:id="txtValorReposicion" prefWidth="200.0" />
+            </HBox>
+
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label prefWidth="100.0" text="Asignar a:" />
+                <ComboBox fx:id="cbEmpleadoAsignar" prefWidth="200.0" />
+            </HBox>
+
+            <!-- Botones de acción -->
+            <VBox spacing="10.0" style="-fx-padding: 10 0 0 0;">
+                <Label text="Acciones:" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                <HBox spacing="10.0" alignment="CENTER">
+                    <Button fx:id="btnAgregar" onAction="#onAgregarEquipo" text="Agregar"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"
+                            prefWidth="70" />
+                    <Button fx:id="btnAsignar" onAction="#onAsignarEquipo" text="Asignar"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"
+                            prefWidth="70" />
+                    <Button fx:id="btnRetirar" onAction="#onRetirarEquipo" text="Retirar"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"
+                            prefWidth="70" />
+                    <Button fx:id="btnLimpiar" onAction="#onLimpiar" text="Limpiar"
+                            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;"
+                            prefWidth="70" />
+                    <Button fx:id="btnGenerarInforme" onAction="#onGenerarInforme" text="Informe"
+                            style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold;"
+                            prefWidth="70" />
                 </HBox>
-            </children>
+            </VBox>
         </VBox>
 
-        <TableView fx:id="tblEquipos" layoutX="380.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0">
-            <columns>
-                <TableColumn fx:id="colCodigo" prefWidth="80.0" text="Código" />
-                <TableColumn fx:id="colTipo" prefWidth="100.0" text="Tipo" />
-                <TableColumn fx:id="colEstado" prefWidth="80.0" text="Estado" />
-                <TableColumn fx:id="colValor" prefWidth="80.0" text="Valor" />
-                <TableColumn fx:id="colAsignadoA" prefWidth="120.0" text="Asignado a" />
-            </columns>
-        </TableView>
+        <!-- Panel de tabla derecha -->
+        <VBox layoutX="380.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0"
+              style="-fx-border-color: #cccccc; -fx-border-width: 1px; -fx-padding: 15;">
 
-        <!-- BOTÓN VOLVER AL MENÚ PRINCIPAL AGREGADO -->
-        <Button fx:id="btnVolverMenu" layoutX="14.0" layoutY="550.0"
-                onAction="#onVolverMenu" prefWidth="200.0" prefHeight="30.0"
+            <Label text="Lista de Equipos:" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+            <TableView fx:id="tblEquipos" prefHeight="430.0" prefWidth="370.0"
+                       style="-fx-border-color: #bdc3c7; -fx-border-width: 1px;">
+                <columns>
+                    <TableColumn fx:id="colCodigo" prefWidth="80.0" text="Código" />
+                    <TableColumn fx:id="colTipo" prefWidth="100.0" text="Tipo" />
+                    <TableColumn fx:id="colEstado" prefWidth="80.0" text="Estado" />
+                    <TableColumn fx:id="colValor" prefWidth="90.0" text="Valor" />
+                    <TableColumn fx:id="colAsignadoA" prefWidth="120.0" text="Asignado a" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Botón Volver -->
+        <Button fx:id="btnVolverMenu" layoutX="14.0" layoutY="560.0"
+                onAction="#onVolverMenu" prefWidth="200.0" prefHeight="35.0"
                 text="Volver al Menú Principal"
-                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14;" />
     </children>
+
+    <!-- Estilos CSS internos -->
+    <style>
+        .root {
+        -fx-background-color: #ecf0f1;
+        }
+        .table-view {
+        -fx-border-color: #bdc3c7;
+        -fx-border-width: 1px;
+        }
+        .table-row-cell:even {
+        -fx-background-color: #f8f9fa;
+        }
+        .table-row-cell:odd {
+        -fx-background-color: #ffffff;
+        }
+        .table-row-cell:selected {
+        -fx-background-color: #3498db;
+        -fx-text-fill: white;
+        }
+        .text-field, .combo-box {
+        -fx-border-color: #bdc3c7;
+        -fx-border-width: 1px;
+        -fx-border-radius: 3px;
+        -fx-background-radius: 3px;
+        }
+        .text-field:focused, .combo-box:focused {
+        -fx-border-color: #3498db;
+        -fx-border-width: 2px;
+        }
+        .button {
+        -fx-cursor: hand;
+        }
+    </style>
 </AnchorPane>
